@@ -6,7 +6,8 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 // import { useNavigate } from "react-router-dom";
 
-import { TextInput, Checkbox } from "../../../app/common/components";
+import { TextInput, Checkbox } from "../../common/components";
+import AuthButton from "./AuthButton";
 // import { handleRegister } from "./store";
 
 const schema = yup
@@ -79,9 +80,7 @@ const SignUpForm = () => {
         value={checked}
         onChange={() => setChecked(!checked)}
       />
-      <button className="btn btn-dark block w-full text-center">
-        Create an account
-      </button>
+      <AuthButton title="Create an account" />
     </form>
   );
 };

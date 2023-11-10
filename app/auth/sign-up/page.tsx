@@ -1,14 +1,13 @@
-import Image from "next/image";
+import Link from "next/link";
 // import { ToastContainer } from "react-toastify";
 
 // import useDarkMode from "@/hooks/useDarkMode";
 
 import SignUpForm from "../components/SignUpForm";
 import Social from "../components/Social";
-
-import LogoWhite from "../../assets/images/logo/logo-white.svg";
-import Logo from "../../assets/images/logo/logo.svg";
-import Illustration from "../../assets/images/auth/ils1.svg";
+import AuthBanner from "../components/AuthBanner";
+import AuthMobileBanner from "../components/AuthMobileBanner";
+import AuthFooter from "../components/AuthFooter";
 
 const SignUp = () => {
   //   const [isDark] = useDarkMode();
@@ -18,47 +17,11 @@ const SignUp = () => {
       {/* <ToastContainer /> */}
       <div className="loginwrapper">
         <div className="lg-inner-column">
-          <div className="left-column relative z-[1]">
-            <div className="max-w-[520px] pt-20 ltr:pl-20 rtl:pr-20">
-              <div
-              //    to="/"
-              >
-                <Image
-                  src={isDark ? LogoWhite : Logo}
-                  alt=""
-                  className="mb-10"
-                />
-              </div>
-
-              <h4>
-                Unlock your Project
-                <span className="text-slate-800 dark:text-slate-400 font-bold">
-                  performance
-                </span>
-              </h4>
-            </div>
-            <div className="absolute left-0 bottom-[-130px] h-full w-full z-[-1]">
-              <Image
-                src={Illustration}
-                alt=""
-                className="h-full w-full object-contain"
-              />
-            </div>
-          </div>
+          <AuthBanner isDark={isDark} />
           <div className="right-column relative bg-white dark:bg-slate-800">
             <div className="inner-content h-full flex flex-col bg-white dark:bg-slate-800">
               <div className="auth-box h-full flex flex-col justify-center">
-                <div className="mobile-logo text-center mb-6 lg:hidden block">
-                  <div
-                  //    to="/"
-                  >
-                    <Image
-                      src={isDark ? LogoWhite : Logo}
-                      alt=""
-                      className="mx-auto"
-                    />
-                  </div>
-                </div>
+                <AuthMobileBanner isDark={isDark} />
                 <div className="text-center 2xl:mb-10 mb-5">
                   <h4 className="font-medium">Sign up</h4>
                   <div className="text-slate-500 dark:text-slate-400 text-base">
@@ -75,18 +38,16 @@ const SignUp = () => {
                   <Social />
                 </div>
                 <div className="max-w-[215px] mx-auto font-normal text-slate-500 dark:text-slate-400 2xl:mt-12 mt-6 uppercase text-sm">
-                  Already registered?
-                  <div
-                    // to="/"
+                  Already registered?{" "}
+                  <Link
+                    href="/"
                     className="text-slate-900 dark:text-white font-medium hover:underline"
                   >
                     Sign In
-                  </div>
+                  </Link>
                 </div>
               </div>
-              <div className="auth-footer text-center">
-                Copyright 2021, Dashcode All Rights Reserved.
-              </div>
+              <AuthFooter />
             </div>
           </div>
         </div>

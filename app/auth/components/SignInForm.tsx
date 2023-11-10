@@ -1,13 +1,15 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { FieldError, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-
-import { TextInput, Checkbox } from "../../../app/common/components";
 // import { useSelector, useDispatch } from "react-redux";
-// import { handleLogin } from "./store";
 // import { toast } from "react-toastify";
+
+import { TextInput, Checkbox } from "../../common/components";
+import AuthButton from "./AuthButton";
+// import { handleLogin } from "./store";
 
 const schema = yup
   .object({
@@ -84,15 +86,14 @@ const SignInForm = () => {
           onChange={() => setChecked(!checked)}
           label="Keep me signed in"
         />
-        <div
-          //   to="/forgot-password"
+        <Link
+          href="/auth/forgot-password"
           className="text-sm text-slate-800 dark:text-slate-400 leading-6 font-medium"
         >
           Forgot Password?{" "}
-        </div>
+        </Link>
       </div>
-
-      <button className="btn btn-dark block w-full text-center">Sign in</button>
+      <AuthButton title="Sing In" />
     </form>
   );
 };

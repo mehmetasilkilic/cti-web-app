@@ -1,8 +1,10 @@
+"use client";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-import { TextInput } from "@/app/common/components";
+import { TextInput } from "../../common/components";
+import AuthButton from "./AuthButton";
 
 const schema = yup
   .object({
@@ -34,10 +36,7 @@ const ForgotForm = () => {
         error={errors.email}
         className="h-[48px]"
       />
-
-      <button className="btn btn-dark block w-full text-center">
-        Send recovery email
-      </button>
+      <AuthButton title=" Send recovery email" />
     </form>
   );
 };
